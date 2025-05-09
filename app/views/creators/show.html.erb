@@ -1,0 +1,28 @@
+<h1>Creator: <%= @creator.name %></h1>
+
+<% if flash[:notice] %>
+  <div style="color: green; margin-top: 10px;"><%= flash[:notice] %></div>
+<% elsif flash[:alert] %>
+  <div style="color: red; margin-top: 10px; white-space: pre-line;"><%= flash[:alert] %></div>
+<% end %>
+
+<h2>Upload Asset JSON</h2>
+
+<%= form_with url: import_assets_creator_path(@creator), local: true, html: { multipart: true } do |f| %>
+  <div style="margin-bottom: 10px;">
+    <%= f.file_field :json_file %>
+  </div>
+  <%= f.submit "Upload", style: "padding: 5px 10px;" %>
+<% end %>
+
+<% if @creator.assets.any? %>
+  <h3 style="margin-top: 20px;">Imported Assets:</h3>
+  <ul>
+    <% @creator.assets.each do |asset| %>
+      <li>
+        <strong><%= asset.title %></strong> - $<%= asset.price %><br>
+       
+      </li>
+    <% end %>
+  </ul>
+<% end %>

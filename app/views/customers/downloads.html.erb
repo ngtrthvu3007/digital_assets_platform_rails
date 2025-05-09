@@ -1,0 +1,18 @@
+<h2>Assets You've Purchased</h2>
+
+<% if flash[:notice] %>
+  <div style="color: green; margin-bottom: 10px;"><%= flash[:notice] %></div>
+<% end %>
+
+<% if @assets.any? %>
+  <ul>
+    <% @assets.each do |asset| %>
+      <li style="margin-bottom: 8px;">
+        <strong><%= asset.title %></strong> - $<%= asset.price %><br>
+        <%= link_to "Download", asset.file_url, target: "_blank", rel: "noopener", style: "color: blue;" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You haven't purchased any assets yet.</p>
+<% end %>

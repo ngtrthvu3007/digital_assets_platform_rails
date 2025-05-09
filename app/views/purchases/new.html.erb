@@ -1,0 +1,18 @@
+<h2>Buy Assets</h2>
+
+<% if flash[:alert] %>
+  <div style="color: red; margin-bottom: 10px;"><%= flash[:alert] %></div>
+<% end %>
+
+<%= form_with url: customer_purchases_path(@customer), method: :post, local: true do %>
+  <% Asset.all.each do |asset| %>
+    <div style="margin-bottom: 5px;">
+      <%= check_box_tag "asset_ids[]", asset.id %>
+      <strong><%= asset.title %></strong> - $<%= asset.price %>
+    </div>
+  <% end %>
+
+  <div style="margin-top: 10px;">
+    <%= submit_tag "Buy Selected", style: "padding: 5px 10px;" %>
+  </div>
+<% end %>

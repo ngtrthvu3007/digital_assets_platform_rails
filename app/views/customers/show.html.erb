@@ -1,0 +1,12 @@
+<h2>Buy Assets</h2>
+
+<%= form_with url: customer_purchases_path(@customer), method: :post, local: true do %>
+  <% Asset.all.each do |asset| %>
+    <div>
+      <%= check_box_tag "asset_ids[]", asset.id %>
+      <%= asset.title %> - $<%= asset.price %>
+    </div>
+  <% end %>
+
+  <%= submit_tag "Buy Selected" %>
+<% end %>

@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Negative Priced Asset",
+    "description": "Invalid price",
+    "file_url": "http://example.com/negative.jpg",
+    "price": -10.0
+  }
+]

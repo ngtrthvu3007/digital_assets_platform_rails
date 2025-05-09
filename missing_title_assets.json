@@ -1,0 +1,13 @@
+[
+  {
+    "description": "This JSON is broken",
+    "file_url": "http://example.com/file.jpg",
+    "price": 50.0
+  },
+  { 
+    "title": "Second Asset",
+    "description": "Missing comma before this object",
+    "file_url": "http://example.com/file2.jpg",
+    "price": 40.0
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Digital Painting",
+    "description": "High-res",
+    "file_url": "https://example.com/art1.jpg",
+    "price": 50.0
+  },
+  {
+    "title": "Vector Icon Set",
+    "description": "SVG format",
+    "file_url": "https://example.com/icons.zip",
+    "price": 30.0
+  }
+]
