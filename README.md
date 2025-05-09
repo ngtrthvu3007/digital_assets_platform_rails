@@ -1,24 +1,78 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Feature: Catalog Bulk Import for Creators
 
-Things you may want to cover:
+### Test Cases
 
-* Ruby version
+1. **No file selected**:
 
-* System dependencies
+   - Ensure the system shows an alert when no file is uploaded.
 
-* Configuration
+2. **Invalid JSON format**:
 
-* Database creation
+   - Verify the system rejects invalid JSON files and shows an appropriate error message.
 
-* Database initialization
+3. **Successful import**:
 
-* How to run the test suite
+   - Test importing a valid JSON file with correctly formatted data.
 
-* Services (job queues, cache servers, search engines, etc.)
+4. **Asset validation errors**:
 
-* Deployment instructions
+   - Ensure the system rolls back the transaction and shows detailed error messages when some assets fail validation.
 
-* ...
+5. **Partial failure (rollback)**:
+   - Verify that no assets are saved if any asset in the JSON file fails validation.
+
+---
+
+## Feature: Creator Earnings API for Admin
+
+### Test Cases
+
+1. **Earnings calculation with multiple creators**:
+
+   - Verify the API returns correct earnings for multiple creators.
+
+2. **Earnings calculation with no purchases**:
+
+   - Ensure the API returns an empty array when there are no purchases.
+
+3. **Earnings calculation with no creators**:
+
+   - Verify the API returns an empty array when there are no creators.
+
+4. **Database connection error**:
+
+   - Simulate a database connection failure and ensure the API handles it gracefully.
+
+5. **Invalid query structure**:
+   - Test the API's behavior when the query structure is invalid (e.g., missing columns).
+
+---
+
+## Feature: Purchase & Download for Customers
+
+### Test Cases
+
+1. **No assets selected**:
+
+   - Verify the system shows an alert when no assets are selected for purchase.
+
+2. **Successful purchase**:
+
+   - Test purchasing multiple valid assets and ensure they are added to the customer's downloads.
+
+3. **Invalid asset ID**:
+
+   - Ensure the system handles invalid asset IDs gracefully.
+
+4. **Customer not found**:
+
+   - Verify the system shows an error when trying to purchase assets for a non-existent customer.
+
+5. **View purchased assets**:
+
+   - Test that the customer can view a list of all purchased assets.
+
+6. **No purchased assets**:
+   - Verify the system shows an appropriate message when the customer has no purchased assets.

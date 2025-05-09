@@ -4,12 +4,16 @@
   <div style="color: green; margin-bottom: 10px;"><%= flash[:notice] %></div>
 <% end %>
 
+<% if flash[:alert] %>
+  <div style="color: red; margin-bottom: 10px;"><%= flash[:alert] %></div>
+<% end %>
+
 <% if @assets.any? %>
   <ul>
     <% @assets.each do |asset| %>
       <li style="margin-bottom: 8px;">
         <strong><%= asset.title %></strong> - $<%= asset.price %><br>
-        <%= link_to "Download", asset.file_url, target: "_blank", rel: "noopener", style: "color: blue;" %>
+        <%= link_to "Download", downloads_customer_path(@customer, asset_id: asset.id), style: "color: blue;" %>
       </li>
     <% end %>
   </ul>
